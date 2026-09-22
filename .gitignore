@@ -1,0 +1,12 @@
+# R temporary files
+.Rhistory
+.RData
+.Rproj.user/
+
+# Raw and processed data
+data/
+checkpoints/
+results/
+
+# RDS files
+*.rds
