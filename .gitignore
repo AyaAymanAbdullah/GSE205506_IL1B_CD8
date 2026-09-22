@@ -3,10 +3,11 @@
 .RData
 .Rproj.user/
 
-# Raw and processed data
+# Raw GEO data
 data/
+
+# Large checkpoint files
 checkpoints/
-results/
 
 # RDS files
 *.rds
