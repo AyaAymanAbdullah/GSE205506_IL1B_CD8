@@ -6,8 +6,3 @@
 # Raw GEO data
 data/
 
-# Large checkpoint files
-checkpoints/
-
-# RDS files
-*.rds
