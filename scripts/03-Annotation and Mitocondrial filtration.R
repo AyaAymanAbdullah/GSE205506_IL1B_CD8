@@ -824,6 +824,7 @@ nrow(filtered_data@meta.data)
 # FINAL RE-CLUSTERING AFTER MITOCHONDRIAL FILTERING
 # STEP 1 — FINAL NORMALIZATION
 # ============================================================
+library(Seurat)
 
 DefaultAssay(filtered_data) <- "RNA"
 
