@@ -24,6 +24,18 @@ Raw data and large intermediate files are not stored in this GitHub repository.
 
 Cell-level QC was performed on 324,020 cells using paper-based gene/UMI filters, followed by scDblFinder, leaving 183,601 singlets.  
 <br>
+Merged the 40 samples (Seurat v5, one layer per sample) and log-normalized (scale factor 10,000).
+<br>
+Selected 2,000 HVGs (vst), computed in batches of layers to limit memory.
+<br>
+Downsampled to at most 2,060 cells per sample (from totally 183601 cells to 80158) because full scaling exceeded RAM.
+<br>
+Scaled the HVGs, regressed out nCount_RNA, ran PCA (20 PCs calculated, 15 used from the elbow plot).
+<br>
+Checked batch effects with a UMAP colored by GSM. Samples mixed, so Harmony was not applied.
+<br>
+Built the SNN graph (15 PCs) and clustered with Louvain at resolution 1.2 (30 clusters).
+<br>
 Broad cell compartments were assigned using canonical markers to support mitochondrial filtering. The dataset was reduced from 80,158 to 63,635 cells by compartment-specific mitochondrial filtering.  
 <br>
 The filtered dataset was then re-clustered for DE-based final annotation including cell subtypes.
@@ -33,7 +45,7 @@ The filtered dataset was then re-clustered for DE-based final annotation includi
 Run the scripts in the following order:
 
 1. `data_QC.R` —  Calculates QC metrics, applies the gene/UMI filters, removes predicted doublets with scDblFinder, and saves QC/doublet checkpoints.
-2. `02_normalization_PCA`. — Performs normalization, identification of highly variable genes, scaling, and PCA.
+2. `02_normalization_PCA`. — Performs normalization, identification of highly variable genes, downsampling, scaling, regression, PCA and clustering.
 3. `Broad annotation.` - Assigns broad cell compartments using canonical markers, producing the broad annotation and a checkpoint before mitochondrial filtering.
 4. `Mitochondrial_Filtering.` - Calculates compartment-specific mitochondrial thresholds and removes high-mitochondrial cells, producing the 63,635-cell filtered dataset.
 5. `Final_Annotation` — Re-normalizes and re-clusters the mitochondrial-filtered dataset, identifies final DE markers, and assigns final cell-type annotations based on DE marker evidence.
@@ -57,11 +69,15 @@ Run the scripts in the following order:
 | scDblFinder | 1.26.7 |
 
 ## Results
+Figure 1. UMAP colored by GSM showing mixed samples clusters so no need harmony integration.
+
+
 Figure 2. Final cell-type annotation after mitochondrial filtering, showing distinct epithelial, T-cell, B-cell, myeloid, endothelial, and fibroblast/stromal subpopulations.
 <img width="1637" height="849" alt="Final Cell-Type Annotation After Mitochondrial Filtering 1" src="https://github.com/user-attachments/assets/2fb41b4f-6440-48c1-9661-1d4c2534f319" />
+
 
 ## Team
 
 - [Aya Ayman Abdullah](https://github.com/AyaAymanAbdullah)
-- [Member 2](https://github.com/USERNAME2)
+- [Shahd Karam](https://github.com/ShahdKaram)
 - [Member 3](https://github.com/USERNAME3)
