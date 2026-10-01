@@ -22,22 +22,22 @@ Raw data and large intermediate files are not stored in this GitHub repository.
 
 ## What We Did
 
-- Checked and organized the sample metadata.
-- Loaded the single-cell expression matrices into Seurat objects.
-- Calculated nFeature_RNA, nCount_RNA, and percent.mt for quality assessment.
-- Applied initial cell-quality filtering based on gene and UMI counts.
-- Performed doublet detection and removed predicted doublets.
-- Continued with normalization, dimensionality reduction, clustering, cell-type annotation, and downstream cell–cell communication analysis.
+Cell-level QC was performed on 324,020 cells using paper-based gene/UMI filters, followed by scDblFinder, leaving 183,601 singlets.  
+<br>
+Broad cell compartments were assigned using canonical markers to support mitochondrial filtering. The dataset was reduced from 80,158 to 63,635 cells by compartment-specific mitochondrial filtering.  
+<br>
+The filtered dataset was then re-clustered for DE-based final annotation including cell subtypes.
 
 ## How to Run It
 
 Run the scripts in the following order:
 
-1. `01_data_QC.R` — Performs metadata checking, QC, initial filtering, and doublet detection/removal.
-2. `02_normalization_PCA.R` — Performs normalization, identification of highly variable genes, scaling, and PCA.
-3. `03_clustering_annotation.R` — Performs clustering, UMAP, and cell-type annotation.
-4. `04_response_IL1B_CD8.R` — Performs response-group and IL1B+ monocyte / CD8+ T-cell analysis.
-5. `05_CellChat_IL1B_CD8.R` — Performs ligand–receptor communication analysis between IL1B+ monocytes and CD8+ T cells.
+1. `data_QC.R` —  Calculates QC metrics, applies the gene/UMI filters, removes predicted doublets with scDblFinder, and saves QC/doublet checkpoints.
+2. `02_normalization_PCA`. — Performs normalization, identification of highly variable genes, scaling, and PCA.
+3. `Broad annotation.` - Assigns broad cell compartments using canonical markers, producing the broad annotation and a checkpoint before mitochondrial filtering.
+4. `Mitochondrial_Filtering.` - Calculates compartment-specific mitochondrial thresholds and removes high-mitochondrial cells, producing the 63,635-cell filtered dataset.
+5. `Final_Annotation` — Re-normalizes and re-clusters the mitochondrial-filtered dataset, identifies final DE markers, and assigns final cell-type annotations based on DE marker evidence.
+6. `05_CellChat_IL1B_CD8.R` — Performs ligand–receptor communication analysis between IL1B+ monocytes and CD8+ T cells.
 
 
 ### R
@@ -57,9 +57,8 @@ Run the scripts in the following order:
 | scDblFinder | 1.26.7 |
 
 ## Results
-
-### Key Figures
-
+Figure 2. Final cell-type annotation after mitochondrial filtering, showing distinct epithelial, T-cell, B-cell, myeloid, endothelial, and fibroblast/stromal subpopulations.
+![Final cell-type annotation](figures/annotaionAndmt.filtration.figuers/Final Cell-Type Annotation After Mitochondrial Filtering.1.png)
 ---
 
 ## Team
@@ -67,5 +66,3 @@ Run the scripts in the following order:
 - [Aya Ayman Abdullah](https://github.com/AyaAymanAbdullah)
 - [Member 2](https://github.com/USERNAME2)
 - [Member 3](https://github.com/USERNAME3)
-- [Member 4](https://github.com/USERNAME4)
-- [Member 5](https://github.com/USERNAME5) 
