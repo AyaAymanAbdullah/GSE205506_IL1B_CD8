@@ -1,0 +1,2 @@
+"dataset","samples","cells_before_downsampling","cells_after_downsampling","genes","highly_variable_genes","normalization","hvg_method","hvg_number","regression_variable","pcs_calculated","pcs_used","harmony_used","harmony_batch_variable","harmony_method","clustering_resolution","number_of_clusters","max_cells_per_sample"
+"GSE205506",40,183610,80167,33538,2000,"LogNormalize, scale factor 10000","VST",2000,"nCount_RNA",20,15,FALSE,NA,"Not used",1.2,30,2060
