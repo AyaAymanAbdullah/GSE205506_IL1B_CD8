@@ -58,8 +58,7 @@ Run the scripts in the following order:
 
 ## Results
 Figure 2. Final cell-type annotation after mitochondrial filtering, showing distinct epithelial, T-cell, B-cell, myeloid, endothelial, and fibroblast/stromal subpopulations.
-![Final cell-type annotation](figures/annotaionAndmt.filtration.figuers/Final Cell-Type Annotation After Mitochondrial Filtering.1.png)
----
+<img width="1637" height="849" alt="Final Cell-Type Annotation After Mitochondrial Filtering 1" src="https://github.com/user-attachments/assets/2fb41b4f-6440-48c1-9661-1d4c2534f319" />
 
 ## Team
 
