@@ -24,16 +24,22 @@ Raw data and large intermediate files are not stored in this GitHub repository.
 
 Cell-level QC was performed on 324,020 cells using paper-based gene/UMI filters, followed by scDblFinder, leaving 183,601 singlets.  
 <br>
+
 Merged the 40 samples (Seurat v5, one layer per sample) and log-normalized (scale factor 10,000).
 <br>
+
 Selected 2,000 HVGs (vst), computed in batches of layers to limit memory.
 <br>
+
 Downsampled to at most 2,060 cells per sample (from totally 183601 cells to 80158) because full scaling exceeded RAM.
 <br>
+
 Scaled the HVGs, regressed out nCount_RNA, ran PCA (20 PCs calculated, 15 used from the elbow plot).
 <br>
+
 Checked batch effects with a UMAP colored by GSM. Samples mixed, so Harmony was not applied.
 <br>
+
 Built the SNN graph (15 PCs) and clustered with Louvain at resolution 1.2 (30 clusters).
 <br>
 
