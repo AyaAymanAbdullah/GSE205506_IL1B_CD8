@@ -36,6 +36,7 @@ Checked batch effects with a UMAP colored by GSM. Samples mixed, so Harmony was 
 <br>
 Built the SNN graph (15 PCs) and clustered with Louvain at resolution 1.2 (30 clusters).
 <br>
+
 Broad cell compartments were assigned using canonical markers to support mitochondrial filtering. The dataset was reduced from 80,158 to 63,635 cells by compartment-specific mitochondrial filtering.  
 <br>
 The filtered dataset was then re-clustered for DE-based final annotation including cell subtypes.
