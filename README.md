@@ -24,25 +24,18 @@ Raw data and large intermediate files are not stored in this GitHub repository.
 
 Cell-level QC was performed on 324,020 cells using paper-based gene/UMI filters, followed by scDblFinder, leaving 183,601 singlets.  
 <br>
-
 Merged the 40 samples (Seurat v5, one layer per sample) and log-normalized (scale factor 10,000).
 <br>
-
 Selected 2,000 HVGs (vst), computed in batches of layers to limit memory.
 <br>
-
 Downsampled to at most 2,060 cells per sample (from totally 183601 cells to 80158) because full scaling exceeded RAM.
 <br>
-
 Scaled the HVGs, regressed out nCount_RNA, ran PCA (20 PCs calculated, 15 used from the elbow plot).
 <br>
-
 Checked batch effects with a UMAP colored by GSM. Samples mixed, so Harmony was not applied.
 <br>
-
 Built the SNN graph (15 PCs) and clustered with Louvain at resolution 1.2 (30 clusters).
 <br>
-
 Broad cell compartments were assigned using canonical markers to support mitochondrial filtering. The dataset was reduced from 80,158 to 63,635 cells by compartment-specific mitochondrial filtering.  
 <br>
 The filtered dataset was then re-clustered for DE-based final annotation including cell subtypes.
@@ -54,9 +47,7 @@ Run the scripts in the following order:
 1. `01_data_QC.R` —  Calculates QC metrics, applies the gene/UMI filters, removes predicted doublets with scDblFinder.
 2. `02_normalization_PCA`. — Performs normalization, identification of highly variable genes, downsampling, scaling, regression, PCA and clustering.
 3. `03-Annotation and Mitocondrial filtration.R` - Assigns broad cell compartments based on canonical markers, providing an initial broad annotation before mitochondrial filtering.
-<br>
     It then calculates compartment-specific mitochondrial thresholds and removes cells with high mitochondrial content, resulting in a filtered dataset of 63,635 cells.
-<br>
     Finally, the filtered dataset is re-normalized and re-clustered, followed by identification of final DE markers and assignment of final cell-type annotations based on DE marker evidence.
 4. `04-Targeted-analysis.R` — Performs ligand–receptor communication analysis between IL1B+ monocytes and CD8+ T cells.
 
