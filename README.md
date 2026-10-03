@@ -23,7 +23,6 @@ Raw data and large intermediate files are not stored in this GitHub repository.
 ## What We Did
 
 Cell-level QC was performed on 324,020 cells using paper-based gene/UMI filters, followed by scDblFinder, leaving 183,601 singlets.  
-<br>
 Merged the 40 samples (Seurat v5, one layer per sample) and log-normalized (scale factor 10,000).
 <br>
 Selected 2,000 HVGs (vst), computed in batches of layers to limit memory.
@@ -37,7 +36,6 @@ Checked batch effects with a UMAP colored by GSM. Samples mixed, so Harmony was 
 Built the SNN graph (15 PCs) and clustered with Louvain at resolution 1.2 (30 clusters).
 <br>
 Broad cell compartments were assigned using canonical markers to support mitochondrial filtering. The dataset was reduced from 80,158 to 63,635 cells by compartment-specific mitochondrial filtering.  
-<br>
 The filtered dataset was then re-clustered for DE-based final annotation including cell subtypes.
 
 ## How to Run It
