@@ -51,12 +51,14 @@ The filtered dataset was then re-clustered for DE-based final annotation includi
 
 Run the scripts in the following order:
 
-1. `data_QC.R` —  Calculates QC metrics, applies the gene/UMI filters, removes predicted doublets with scDblFinder, and saves QC/doublet checkpoints.
+1. `01_data_QC.R` —  Calculates QC metrics, applies the gene/UMI filters, removes predicted doublets with scDblFinder.
 2. `02_normalization_PCA`. — Performs normalization, identification of highly variable genes, downsampling, scaling, regression, PCA and clustering.
-3. `Broad annotation.` - Assigns broad cell compartments using canonical markers, producing the broad annotation and a checkpoint before mitochondrial filtering.
-4. `Mitochondrial_Filtering.` - Calculates compartment-specific mitochondrial thresholds and removes high-mitochondrial cells, producing the 63,635-cell filtered dataset.
-5. `Final_Annotation` — Re-normalizes and re-clusters the mitochondrial-filtered dataset, identifies final DE markers, and assigns final cell-type annotations based on DE marker evidence.
-6. `05_CellChat_IL1B_CD8.R` — Performs ligand–receptor communication analysis between IL1B+ monocytes and CD8+ T cells.
+3. `03-Annotation and Mitocondrial filtration.R` - Assigns broad cell compartments based on canonical markers, providing an initial broad annotation before mitochondrial filtering.
+<br>
+    It then calculates compartment-specific mitochondrial thresholds and removes cells with high mitochondrial content, resulting in a filtered dataset of 63,635 cells.
+<br>
+    Finally, the filtered dataset is re-normalized and re-clustered, followed by identification of final DE markers and assignment of final cell-type annotations based on DE marker evidence.
+4. `04-Targeted-analysis.R` — Performs ligand–receptor communication analysis between IL1B+ monocytes and CD8+ T cells.
 
 
 ### R
