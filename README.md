@@ -22,22 +22,20 @@ Raw data and large intermediate files are not stored in this GitHub repository.
 
 ## What We Did
 
-Cell-level QC was performed on 324,020 cells using paper-based gene/UMI filters, followed by scDblFinder, leaving 183,601 singlets.  
-Merged the 40 samples (Seurat v5, one layer per sample) and log-normalized (scale factor 10,000).
-<br>
-Selected 2,000 HVGs (vst), computed in batches of layers to limit memory.
-<br>
-Downsampled to at most 2,060 cells per sample (from totally 183601 cells to 80158) because full scaling exceeded RAM.
-<br>
-Scaled the HVGs, regressed out nCount_RNA, ran PCA (20 PCs calculated, 15 used from the elbow plot).
-<br>
-Checked batch effects with a UMAP colored by GSM. Samples mixed, so Harmony was not applied.
-<br>
-Built the SNN graph (15 PCs) and clustered with Louvain at resolution 1.2 (30 clusters).
-<br>
-Broad cell compartments were assigned using canonical markers to support mitochondrial filtering. The dataset was reduced from 80,158 to 63,635 cells by compartment-specific mitochondrial filtering.  
-The filtered dataset was then re-clustered for DE-based final annotation including cell subtypes.
 
+For the targeted analysis, IL1B⁺ monocytes and CD8⁺ T cells were specifically identified from the final annotated dataset and restricted to post-treatment tumor samples with known clinical response.
+
+Patients were stratified according to pathological complete response (pCR) or non-pCR.
+
+The abundance of IL1B⁺ monocytes and CD8⁺ T cells was quantified at the patient level and compared between pCR and non-pCR groups.
+
+Cell–cell communication was analyzed using CellChat separately in the pCR and non-pCR groups, focusing on ligand–receptor interactions between IL1B⁺ monocytes and CD8⁺ T cells.
+
+Both directions of communication and self-signaling interactions were evaluated.
+
+Inferred communication probabilities were compared between pCR and non-pCR groups to identify candidate ligand–receptor interactions associated with differential response to PD-1 blockade.
+
+Patient-level analyses were performed to assess the consistency of the observed target-cell abundance patterns across individual patients.
 ## How to Run It
 
 Run the scripts in the following order:
@@ -47,15 +45,13 @@ Run the scripts in the following order:
 3. `03-Annotation and Mitocondrial filtration.R` - Assigns broad cell compartments based on canonical markers, providing an initial broad annotation before mitochondrial filtering.
     It then calculates compartment-specific mitochondrial thresholds and removes cells with high mitochondrial content, resulting in a filtered dataset of 63,635 cells.
     Finally, the filtered dataset is re-normalized and re-clustered, followed by identification of final DE markers and assignment of final cell-type annotations based on DE marker evidence.
-4. `04-Targeted-analysis.R` — Performs ligand–receptor communication analysis between IL1B+ monocytes and CD8+ T cells.
-
+4. `04-Targeted-analysis.R` —  Identifies IL1B⁺ monocytes and CD8⁺ T cells from the final annotated dataset, restricts the analysis to post-treatment tumor samples with known response, and compares target-cell abundance between pCR and non-pCR patients. It then performs CellChat analysis separately in pCR and non-pCR groups to evaluate ligand–receptor interactions between IL1B⁺ monocytes and CD8⁺ T cells, including both directions of communication and self-signaling, followed by comparison of inferred communication probabilities between response groups and patient-level analysis.
 
 ### R
 
 - R 4.6.1
 
-### Packages used in the QC stage
-
+#
 | Package | Version |
 |---|---:|
 | Seurat | 5.5.1 |
@@ -65,16 +61,19 @@ Run the scripts in the following order:
 | Matrix | 1.7.6 |
 | SingleCellExperiment | 1.34.0 |
 | scDblFinder | 1.26.7 |
+| CellChat | 2.2.0.9001|
+
+
 
 ## Results
 Figure 1. UMAP colored by GSM showing mixed samples clusters so no need harmony integration.
 <img src="figures/Norm_figures/umap_before_harmony.png" width="1637" height="849" alt="umap_GSM_noharmony">
 Figure 2. Final cell-type annotation after mitochondrial filtering, showing distinct epithelial, T-cell, B-cell, myeloid, endothelial, and fibroblast/stromal subpopulations.
 <img width="1637" height="849" alt="Final Cell-Type Annotation After Mitochondrial Filtering 1" src="https://github.com/user-attachments/assets/2fb41b4f-6440-48c1-9661-1d4c2534f319" />
-
+Figure 3.Modeled ligand-receptor communication differences between IL1B⁺ monocytes and CD8⁺ T cells across response groups (pCR minus non-pCR). C:/Users/Admin/Documents/Project2/GSE205506_IL1B_CD8/figures/TARGETED IL1B+ MONOCYTE  CD8+ T-CELL ANALYSIS/FIGURE_2_IL1B_CD8_pCR_vs_nonpCR.png
 
 ## Team
 
 - [Aya Ayman Abdullah](https://github.com/AyaAymanAbdullah)
 - [Shahd Karam](https://github.com/ShahdKaram)
-- [Member 3](https://github.com/USERNAME3)
+- [Maroua MILIANI](https://github.com/MarouaMILIANI)
