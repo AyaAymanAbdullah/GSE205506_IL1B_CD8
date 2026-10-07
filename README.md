@@ -86,7 +86,10 @@ Figure 1. UMAP colored by GSM showing mixed samples clusters so no need harmony 
 <img src="figures/Norm_figures/umap_before_harmony.png" width="1637" height="849" alt="umap_GSM_noharmony">
 Figure 2. Final cell-type annotation after mitochondrial filtering, showing distinct epithelial, T-cell, B-cell, myeloid, endothelial, and fibroblast/stromal subpopulations.
 <img width="1637" height="849" alt="Final Cell-Type Annotation After Mitochondrial Filtering 1" src="https://github.com/user-attachments/assets/2fb41b4f-6440-48c1-9661-1d4c2534f319" />
-Figure 3.Modeled ligand-receptor communication differences between IL1B⁺ monocytes and CD8⁺ T cells across response groups (pCR minus non-pCR).[ figures/TARGETED IL1B+ MONOCYTE  CD8+ T-CELL ANALYSIS/FIGURE_2_IL1B_CD8_pCR_vs_nonpCR.png](https://github.com/TON-USER/TON-REPO/blob/main/figures/TARGETED%20IL1B%2B%20MONOCYTE%20%20CD8%2B%20T-CELL%20ANALYSIS/FIGURE_2_IL1B_CD8_pCR_vs_nonpCR.png)
+Figure 3.Modeled ligand-receptor communication differences between IL1B⁺ monocytes and CD8⁺ T cells across response groups (pCR minus non-pCR).<img src="https://raw.githubusercontent.com/AyaAymanAbdullah/GSE205506_IL1B_CD8/93ca85c915b79bbe374c07c26f91b34b15ddd36e/figures/TARGETED%20IL1B+%20MONOCYTE%20%20CD8+%20T-CELL%20ANALYSIS/FIGURE_2_IL1B_CD8_pCR_vs_nonpCR.png"
+width="1637"
+height="849"
+alt="Modeled ligand-receptor communication differences between IL1B-positive monocytes and CD8-positive T cells">
 
 ## Team
 
