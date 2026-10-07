@@ -70,7 +70,7 @@ Figure 1. UMAP colored by GSM showing mixed samples clusters so no need harmony 
 <img src="figures/Norm_figures/umap_before_harmony.png" width="1637" height="849" alt="umap_GSM_noharmony">
 Figure 2. Final cell-type annotation after mitochondrial filtering, showing distinct epithelial, T-cell, B-cell, myeloid, endothelial, and fibroblast/stromal subpopulations.
 <img width="1637" height="849" alt="Final Cell-Type Annotation After Mitochondrial Filtering 1" src="https://github.com/user-attachments/assets/2fb41b4f-6440-48c1-9661-1d4c2534f319" />
-Figure 3.Modeled ligand-receptor communication differences between IL1B⁺ monocytes and CD8⁺ T cells across response groups (pCR minus non-pCR). C:/Users/Admin/Documents/Project2/GSE205506_IL1B_CD8/figures/TARGETED IL1B+ MONOCYTE  CD8+ T-CELL ANALYSIS/FIGURE_2_IL1B_CD8_pCR_vs_nonpCR.png
+Figure 3.Modeled ligand-receptor communication differences between IL1B⁺ monocytes and CD8⁺ T cells across response groups (pCR minus non-pCR). figures/TARGETED IL1B+ MONOCYTE  CD8+ T-CELL ANALYSIS/FIGURE_2_IL1B_CD8_pCR_vs_nonpCR.png
 
 ## Team
 
