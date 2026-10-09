@@ -91,6 +91,15 @@ width="1637"
 height="849"
 alt="Modeled ligand-receptor communication differences between IL1B-positive monocytes and CD8-positive T cells">
 
+
+## Team Contributions
+
+| Team Member | Contributions | Scripts |
+|---|---|---|
+| Aya Ayman | Performed cell-level QC and doublet removal, broad cell annotation, compartment-specific mitochondrial filtering, final re-clustering, and DE-based final cell-type annotation. | `01_data_QC.R`, `03-Annotation and Mitocondrial filtration.R` |
+| Shahd Karam | Performed normalization, highly variable gene selection, scaling, PCA, initial clustering, UMAP visualization, and sample-mixing assessment. | `02_normalization_PCA` |
+| Maroua MILIANI | Performed targeted identification of IL1B⁺ monocytes and CD8⁺ T cells, selected the post-treatment tumor cohort, conducted CellChat analysis comparing pCR and non-pCR, and summarized ligand–receptor interactions and self-signaling. | `04-Targeted-analysis.R` |
+
 ## Team
 
 - [Aya Ayman Abdullah](https://github.com/AyaAymanAbdullah)
